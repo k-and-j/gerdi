@@ -13,5 +13,5 @@ class Gerdi extends Basix.Element {
 }
 
 class Bullet extends Basix.Element {
-	constructor
+	constructor() {}
 }
