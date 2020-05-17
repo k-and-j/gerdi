@@ -1,7 +1,7 @@
 use(p => {
     p.color = "firebrick"
-    p.loop = () => {
+    p.loop = (data) => {
         // p.move()
-        console.log("xxx")
+        p.move(Math.random() * 800, Math.random() * 800);
     }
 })
