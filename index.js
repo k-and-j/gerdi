@@ -1,4 +1,3 @@
-var x, y;
+const TPS = 3;
 
-
-// x.js :
+console.log({x, y})

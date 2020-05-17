@@ -1,6 +1,6 @@
-(() => {
-    x = new Gerdi("firebrick")
-    x.loop = () => {
-        x.move()
+use((p) => {
+    p.color = "firebrick"
+    p.loop = () => {
+        // p.move()
     }
-})()
+})
