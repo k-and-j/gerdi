@@ -23,6 +23,7 @@ const {__start, use} = (() => {
             y: _p.y,
             screenwidth: _p.layer.width,
             screenheight: _p.layer.height,
+            bullets: _op.bullets.map(b => ({x: b.x, y: b.y}))
         }
         p.move = (x, y) => {
             if (_p.x + x + _p.size <= _p.layer.width && _p.y + y + _p.size <= _p.layer.height && _p.x + x - _p.size >= 0 && _p.y + y - _p.size >= 0) {

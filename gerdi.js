@@ -1,8 +1,16 @@
 
+Array.prototype.remove = function (element) {
+	var index = this.indexOf(element);
+	if (index > -1) {
+		this.splice(index, 1);
+	}
+};
+
 class Gerdi extends Basix.Element {
 	constructor(x, y, size = 20, color = "white") {
 		super({layer: "Arena", x, y, size});
 		this.color = color;
+		this.bullets = [];
 	}
 	render(context) {
 		context.beginPath();
@@ -21,13 +29,15 @@ class Bullet extends Basix.Element {
 		}
 		this.player = player;
 		this.angle = -this.angle / (180 / Math.PI);
+		this.player.bullets.push(this);
 		this.moveBySpeed({
 			relative: true,
 			x: Math.cos(this.angle) * range,
 			y: Math.sin(this.angle) * range,
 			speed: 1.5
 		}).then(() => {
-			this.remove()
+			this.player.bullets.remove(this);
+			this.remove();
 		});
 	}
 	render(context) {
