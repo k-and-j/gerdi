@@ -15,21 +15,30 @@ const {__start, use} = (() => {
 
     function pass(p, _p, op, _op) {
         // p: player, _p: gerdi, op: opponent, _op: opponent gerdi
+        _p.opponent = _op;
         p.data = {
             ox: _op.x,
             oy: _op.y,
             x: _p.x,
-            y: _p.y
+            y: _p.y,
+            screenwidth: _p.layer.width,
+            screenheight: _p.layer.height,
         }
         p.move = (x, y) => {
-            _p.moveBySpeed({
-                x,
-                y,
-                relative: true,
-                speed: 0.8
-            });
+            if (_p.x + x + _p.size <= _p.layer.width && _p.y + y + _p.size <= _p.layer.height && _p.x + x - _p.size >= 0 && _p.y + y - _p.size >= 0) {
+                _p.moveBySpeed({
+                    x,
+                    y,
+                    relative: true,
+                    speed: 0.8
+                });
+            }
             p.move = () => {}
         }
+        p.shoot = (dx, dy) => {
+            new Bullet(_p, dx, dy);
+            p.shoot = () => {}
+        }   
     }
 
     function __start() {
