@@ -1,7 +1,7 @@
 
 class Gerdi extends Basix.Element {
-	constructor(x, y, size, color = "white") {
-		super({layer: "Arena", x: 0, y: 0, size: 30});
+	constructor(x, y, size = 20, color = "white") {
+		super({layer: "Arena", x, y, size});
 		this.color = color;
 	}
 	render(context) {

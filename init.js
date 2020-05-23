@@ -1,7 +1,7 @@
 const {__start, use} = (() => {
     const delay = 1;
-    const _x = new Gerdi(); 
-    const _y = new Gerdi();
+    const _x = new Gerdi(100, Basix.layers.list.Arena.height / 2 - 10); 
+    const _y = new Gerdi(Basix.layers.list.Arena.width - 100, Basix.layers.list.Arena.height / 2 - 10);
 
     const player = { x: {}, y: {} }
     
